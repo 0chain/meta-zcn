@@ -1,0 +1,26 @@
+From 1fef545dad92342d10a975951133fd65c6339509 Mon Sep 17 00:00:00 2001
+From: "Bernardo A. Rodrigues" <barodrigues@protonmail.com>
+Date: Wed, 12 May 2021 20:24:51 -0300
+Subject: [PATCH] rm native flag
+
+---
+ CMakeLists.txt | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index aa1ada7..a51b37b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -81,9 +81,6 @@ if(MSVC)
+ 	link_directories(${CMAKE_SOURCE_DIR}/../cybozulib_ext/lib)
+ 	link_directories(${CMAKE_SOURCE_DIR}/lib)
+ else()
+-	if("${CFLAGS_OPT_USER}" STREQUAL "")
+-		set(CFLAGS_OPT_USER "-O3 -DNDEBUG -march=native")
+-	endif()
+ 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -Wformat=2 -Wcast-qual -Wcast-align -Wwrite-strings -Wfloat-equal -Wpointer-arith ${CFLAGS_OPT_USER}")
+ 
+ 	if(${MCL_MAX_BIT_SIZE} GREATER 0)
+-- 
+2.25.1
+

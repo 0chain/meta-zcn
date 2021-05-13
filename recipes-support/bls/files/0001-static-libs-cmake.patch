@@ -1,0 +1,29 @@
+From f1a596e71f1ba69c780738190b0112967cdd7bd0 Mon Sep 17 00:00:00 2001
+From: "Bernardo A. Rodrigues" <barodrigues@protonmail.com>
+Date: Wed, 12 May 2021 22:17:57 -0300
+Subject: [PATCH] static libs cmake
+
+---
+ CMakeLists.txt | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6854a3f..a9a7f03 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -19,9 +19,9 @@ endif()
+ 
+ include_directories(include/)
+ 
+-add_library(bls_c256 SHARED src/bls_c256.cpp)
+-add_library(bls_c384 SHARED src/bls_c384.cpp)
+-add_library(bls_c384_256 SHARED src/bls_c384_256.cpp)
++add_library(bls_c256 STATIC src/bls_c256.cpp)
++add_library(bls_c384 STATIC src/bls_c384.cpp)
++add_library(bls_c384_256 STATIC src/bls_c384_256.cpp)
+ target_link_libraries(bls_c256 ${LIBS})
+ target_link_libraries(bls_c384 ${LIBS})
+ target_link_libraries(bls_c384_256 ${LIBS})
+-- 
+2.25.1
+
