@@ -1,0 +1,47 @@
+From abe96b6a1997ff9afeb0e985e06e85fe9e0135ff Mon Sep 17 00:00:00 2001
+From: "Bernardo A. Rodrigues" <barodrigues@protonmail.com>
+Date: Wed, 12 May 2021 23:09:24 -0300
+Subject: [PATCH] cmake static lib
+
+---
+ CMakeLists.txt | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a51b37b..e7397f7 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -168,20 +168,16 @@ if(USE_LLVM)
+ 	add_dependencies(mcl base64.o)
+ 	add_dependencies(mcl_st base64.o)
+ else()
+-	add_library(mcl SHARED ${SRCS})
+-	add_library(mcl_st STATIC ${SRCS})
++	add_library(mcl STATIC ${SRCS})
+ endif()
+ target_link_libraries(mcl ${EXT_LIBS})
+-target_link_libraries(mcl_st ${EXT_LIBS})
+-set_target_properties(mcl_st PROPERTIES OUTPUT_NAME mcl)
+-#set_target_properties(mcl_st PROPERTIES PREFIX "lib")
+ #set_target_properties(mcl PROPERTIES OUTPUT_NAME mcl VERSION 1.0.0 SOVERSION 1)
+ # For semantics of ABI compatibility including when you must bump SOVERSION, see:
+ # https://community.kde.org/Policies/Binary_Compatibility_Issues_With_C%2B%2B#The_Do.27s_and_Don.27ts
+ 
+ set(LIBS mcl ${EXT_LIBS})
+ foreach(bit IN ITEMS 256 384 384_256 512)
+-	add_library(mclbn${bit} SHARED src/bn_c${bit}.cpp)
++	add_library(mclbn${bit} STATIC src/bn_c${bit}.cpp)
+ 	target_link_libraries(mclbn${bit} ${LIBS})
+ 	add_executable(bn_c${bit}_test test/bn_c${bit}_test.cpp)
+ 	target_link_libraries(bn_c${bit}_test mclbn${bit})
+@@ -191,7 +187,6 @@ file(GLOB MCL_HEADERS include/mcl/*.hpp include/mcl/bn.h include/mcl/curve_type.
+ file(GLOB CYBOZULIB_HEADERS include/cybozu/*.hpp)
+ 
+ install(TARGETS mcl DESTINATION lib)
+-install(TARGETS mcl_st DESTINATION lib)
+ install(TARGETS mclbn256 DESTINATION lib)
+ install(TARGETS mclbn384 DESTINATION lib)
+ install(TARGETS mclbn384_256 DESTINATION lib)
+-- 
+2.25.1
+
