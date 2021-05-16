@@ -1,13 +1,18 @@
 # QEMU
 
-1. Inside `${BUILD}`, start QEMU:
+1. Load environment variables:
+```
+$ source poky/oe-init-build-env build
+```
+
+2. Start QEMU:
 ```
 $ runqemu qemuarm64 zcn-image-base nographic
 ```
 
-2. Log in with `root`, no password.
+3. Log in with `root`, no password.
 
-3. Run `zwalletcli`:
+4. Run `zwalletcli`:
 ```
 # zwalletcli ls-miners --configDir /etc/zwalletcli/
 ...
