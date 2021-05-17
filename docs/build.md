@@ -24,7 +24,7 @@ $ git clone https://github.com/0chain/meta-zcn.git -b dunfell
 - `zcn-image-base-qemuarm64`: QEMU image (`aarch64`)
 - `zcn-image-base-raspberrypi3-64`: Raspberry Pi 3 image (B, B+, `aarch64`) .
 - `zcn-image-base-qemux86-64`: x86-64 QEMU image (`x86-64`).
-- `zcn-image-base-genericx86-64`: NUC-compatible image (compatible with most `x86-64` mobos).
+- `zcn-image-base-genericx86-64`: generic x86-64 image (compatible with most `x86-64` mobos).
 
 For example:
 ```
