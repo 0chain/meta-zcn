@@ -9,26 +9,6 @@ The `zcn` distribution provides the following features:
 - `docker` as virtualization manager.
 - `opkg`as package manager.
 
-# Images
-
-## zcn-image-base
-
-`zcn-image-base` is a basic prototype image. It includes:
-- `zboxcli`
-- `zwalletcli`
-- `git`
-- `jq`
-- `nano`
-- `vim`
-- `go`
-- `go-runtime`
-- `python3`
-- `python3-dev`
-- `python3-pip`
-- `python3-setuptools`
-
-`root` user with empty password is allowed. This needs to be changed for production images.
-
 # References
 
 - Poky - Yocto Mega Manual: https://www.yoctoproject.org/docs/current/mega-manual/mega-manual.html
