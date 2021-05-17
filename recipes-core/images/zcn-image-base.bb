@@ -4,6 +4,7 @@ LICENSE = "MIT"
 require recipes-core/images/core-image-base.bb
 
 IMAGE_FEATURES += " \
+                   debug-tweaks \
                    tools-debug \
                    tools-sdk \
                    doc-pkgs \
@@ -13,10 +14,16 @@ IMAGE_FEATURES += " \
 IMAGE_INSTALL_append += "\
                           zboxcli \
                           zwalletcli \
+                          git \
+                          nano \
+                          vim \
                           jq \
+                          python3 \
+                          python3-dev \
+                          python3-pip \
+                          python3-setuptools \
                           go \
                           go-runtime \
-                          git \
 "
 
 IMAGE_ROOTFS_SIZE = "512000"
