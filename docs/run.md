@@ -18,7 +18,7 @@ $ runqemu qemuarm64 zcn-image-base nographic
 ...
 # zwalletcli mn-config --configDir /etc/zwalletcli/
 ...
-root@qemuarm64:~# cat /etc/zwalletcli/wallet.json
+# cat /etc/zwalletcli/wallet.json | jq
 ```
 
 4. Run `zboxcli`:
