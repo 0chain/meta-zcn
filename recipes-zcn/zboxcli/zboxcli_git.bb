@@ -5,13 +5,13 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 
 DEPENDS = "bls"
-RDEPENDS_${PN} = " ca-certificates"
+RDEPENDS_${PN} = " zwalletcli ca-certificates"
 
 inherit go go-mod
 
 GO_IMPORT = "github.com/0chain/zboxcli"
 SRC_URI = "git://github.com/0chain/zboxcli.git;destsuffix=${BPN}-${PV}/src/${GO_IMPORT}"
-SRCREV = "${AUTOREV}"
+SRCREV = "3fcc74f3c6d9791f147edc110c684c9000d7d64d"
 
 GOBUILDFLAGS_append = " -modcacherw -x -v -tags bn256"
 
@@ -29,9 +29,5 @@ do_install_append() {
   # avoid prebuilt binaries (CODE IS LAW)
   # we are using DEPENDS, which builds bls from source
   rm -rf ${D}${libdir}/go/pkg/mod/github.com/herumi/bls-go-binary@v1.0.0/
-
-  # install config.yaml
-  install -d ${D}${sysconfdir}/${PN}
-  install -m 0644 ${WORKDIR}/${PN}-${PV}/src/${GO_IMPORT}/network/one.yaml ${D}${sysconfdir}/${PN}/config.yaml
 
 }
