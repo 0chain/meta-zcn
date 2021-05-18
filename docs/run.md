@@ -15,7 +15,7 @@ $ runqemu qemuarm64 zcn-image-base nographic
 # Raspberry Pi
 
 1. Install [Raspberry Pi Imager](https://www.raspberrypi.org/software/) into your Host.
-2. Flash `${BUILD}/tmp-glibc/deploy/images/raspberrypi{3,4}-64/zcn-image-base-raspberrypi3-64.wic.bz2` into the SD Card.
+2. Flash `${BUILD}/tmp/deploy/images/raspberrypi3-64/zcn-image-base-raspberrypi3-64.wic.bz2` into the SD Card.
 3. Plug Raspberry Pi into DHCP-enabled LAN via Ethernet.
 4. NMAP for the RPi:
 ```
