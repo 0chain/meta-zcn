@@ -21,7 +21,7 @@ $ runqemu qemuarm64 zcn-image-base nographic
 ```
 $ nmap 192.168.0.1/24 -p 22
 ```
-5. SSH in:
+5. SSH in (empty password):
 ```
 $ ssh root@W.X.Y.Z
 ```
