@@ -15,20 +15,19 @@ SRCREV = "7bc9be60b6f1bead0fb0d3c555fe04545a7a3840"
 
 GOBUILDFLAGS_append = " -modcacherw -x -v -tags bn256"
 
-#CGO_ENABLED = "1"
-
 do_compile_prepend() {
 
   # avoid prebuilt binaries (CODE IS LAW)
   # we are using DEPENDS, which builds bls from source
   echo "exclude github.com/herumi/bls-go-binary v0.0.0-20191119080710-898950e1a520" >> go.mod
+
   ${GO} mod download -json
 
 }
 
 do_install_append() {
 
-  # avoid prebuilt binaries (CODE IS LAW)
+  # avoid prebuilt binaries
   # we are using DEPENDS, which builds bls from source
   rm -rf ${D}${libdir}/go/pkg/mod/github.com/herumi/bls-go-binary@v1.0.0/
 

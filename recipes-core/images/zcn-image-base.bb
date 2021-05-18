@@ -27,8 +27,3 @@ IMAGE_INSTALL_append += "\
 "
 
 IMAGE_ROOTFS_SIZE = "512000"
-
-# dns() {
-#    echo "nameserver 8.8.8.8" > ${IMAGE_ROOTFS}/etc/resolv.conf
-# }
-# ROOTFS_POSTPROCESS_COMMAND += "dns; "

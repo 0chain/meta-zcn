@@ -19,7 +19,3 @@ do_install_append(){
   mv ${D}${libdir}/libbls_c384_256.a ${D}${libdir}/libbls384_256.a
   mv ${D}${libdir}/libbls_c384.a ${D}${libdir}/libbls384.a
 }
-
-#EXTRA_OECMAKE = "-DSTAGING_DIR_TARGET=${STAGING_DIR_TARGET}"
-
-#EXTRA_OEMAKE = "MCL_DIR=${STAGING_DIR_TARGET}"

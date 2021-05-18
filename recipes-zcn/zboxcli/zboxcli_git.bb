@@ -20,13 +20,14 @@ do_compile_prepend() {
   # avoid prebuilt binaries (CODE IS LAW)
   # we are using DEPENDS, which builds bls from source
   echo "exclude github.com/herumi/bls-go-binary v0.0.0-20191119080710-898950e1a520" >> go.mod
+
   ${GO} mod download -json
 
 }
 
 do_install_append() {
 
-  # avoid prebuilt binaries (CODE IS LAW)
+  # avoid prebuilt binaries
   # we are using DEPENDS, which builds bls from source
   rm -rf ${D}${libdir}/go/pkg/mod/github.com/herumi/bls-go-binary@v1.0.0/
 
