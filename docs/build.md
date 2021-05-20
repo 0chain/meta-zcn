@@ -1,13 +1,14 @@
 # Build
 
 Prepare your host for Yocto/OpenEmbedded development. Refer to [Yocto's official documentation](https://www.yoctoproject.org/docs/latest/mega-manual/mega-manual.html#detailed-supported-distros) for more details on setting up.
+Bear in mind that running a build will take up to 50Gb of disk space.
 
 1. Assuming you are using Ubuntu (20.04):
 ```
 $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib \
      build-essential chrpath socat cpio python3 python3-pip python3-pexpect \
      xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev \
-     pylint3 xterm
+     pylint3 xterm file
 ```
 
 2. Install `kas`:
@@ -32,3 +33,7 @@ For example:
 ```
 $ kas build zcn-image-base-qemuarm64.yml
 ```
+
+You can tune the build speed to match your available resources by modifying `kas.yml`.
+Set `PARALLEL_MAKE = -jX` so that `X` matches the number of available CPU cores.
+Set `BB_NUMBER_THREADS = Y` so that `Y=1.5*X`.
