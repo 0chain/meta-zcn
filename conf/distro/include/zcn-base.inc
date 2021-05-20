@@ -40,4 +40,4 @@ DISTRO_FEATURES_DEFAULT_remove = " alsa bluetooth nfs 3g nfc x11"
 # be called from within the recipe build task. They are specified as
 # NONFATAL as they are not installed at the same time on the build
 # system.
-HOSTTOOLS_NONFATAL += "sudo pidof dockerd podman newgidmap newuidmap"
+# HOSTTOOLS_NONFATAL += "sudo pidof dockerd podman newgidmap newuidmap"
