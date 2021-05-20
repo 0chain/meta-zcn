@@ -18,6 +18,7 @@ $ sudo pip3 install kas
 2. Clone `oe-zcn`:
 ```
 $ git clone https://github.com/0chain/oe-zcn.git
+$ cd oe-zcn
 ```
 
 3. Start build via `kas`. You can choose one of the following options:
