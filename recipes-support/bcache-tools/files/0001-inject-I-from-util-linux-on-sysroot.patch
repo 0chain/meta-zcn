@@ -1,0 +1,31 @@
+From 1d8cd14b4bb4e80bfac26f75e9f998356f3f68e7 Mon Sep 17 00:00:00 2001
+From: "Bernardo A. Rodrigues" <barodrigues@protonmail.com>
+Date: Fri, 21 May 2021 16:29:00 -0300
+Subject: [PATCH] inject -I from util-linux on sysroot
+
+---
+ Makefile | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index c824ae3..2ef26bc 100644
+--- a/Makefile
++++ b/Makefile
+@@ -22,11 +22,11 @@ clean:
+ 
+ bcache-test: LDLIBS += `pkg-config --libs openssl` -lm
+ make-bcache: LDLIBS += `pkg-config --libs uuid blkid`
+-make-bcache: CFLAGS += `pkg-config --cflags uuid blkid`
++make-bcache: CFLAGS += `pkg-config --cflags uuid blkid` -I$(INCLUDE)
+ make-bcache: bcache.o
+ probe-bcache: LDLIBS += `pkg-config --libs uuid blkid`
+-probe-bcache: CFLAGS += `pkg-config --cflags uuid blkid`
++probe-bcache: CFLAGS += `pkg-config --cflags uuid blkid` -I$(INCLUDE)
+ bcache-super-show: LDLIBS += `pkg-config --libs uuid`
+-bcache-super-show: CFLAGS += -std=gnu99
++bcache-super-show: CFLAGS += -std=gnu99 -I$(INCLUDE)
+ bcache-super-show: bcache.o
+ bcache-register: bcache-register.o
+-- 
+2.25.1
+
