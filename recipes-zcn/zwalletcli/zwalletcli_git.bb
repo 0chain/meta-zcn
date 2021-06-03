@@ -11,7 +11,7 @@ inherit go go-mod
 
 GO_IMPORT = "github.com/0chain/zwalletcli"
 SRC_URI = "git://github.com/0chain/zwalletcli.git;destsuffix=${BPN}-${PV}/src/${GO_IMPORT}"
-SRCREV = "7bc9be60b6f1bead0fb0d3c555fe04545a7a3840"
+SRCREV = "894f3d86b896f5cb55cf409194c3d6901d659cad"
 
 GOBUILDFLAGS_append = " -modcacherw -x -v -tags bn256"
 
@@ -34,5 +34,8 @@ do_install_append() {
   # install config.yaml
   install -d ${D}${sysconfdir}/zcn
   install -m 0644 ${WORKDIR}/${PN}-${PV}/src/${GO_IMPORT}/network/one.yaml ${D}${sysconfdir}/zcn/config.yaml
+
+  # rename executable binary
+  mv ${D}${bindir}/zwalletcli ${D}${bindir}/zwallet
 
 }

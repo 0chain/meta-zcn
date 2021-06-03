@@ -11,7 +11,7 @@ inherit go go-mod
 
 GO_IMPORT = "github.com/0chain/zboxcli"
 SRC_URI = "git://github.com/0chain/zboxcli.git;destsuffix=${BPN}-${PV}/src/${GO_IMPORT}"
-SRCREV = "3fcc74f3c6d9791f147edc110c684c9000d7d64d"
+SRCREV = "8856341dad09b21bfacbd913288d065784c0028f"
 
 GOBUILDFLAGS_append = " -modcacherw -x -v -tags bn256"
 
@@ -31,4 +31,6 @@ do_install_append() {
   # we are using DEPENDS, which builds bls from source
   rm -rf ${D}${libdir}/go/pkg/mod/github.com/herumi/bls-go-binary@v1.0.0/
 
+  # rename executable binary
+  mv ${D}${bindir}/zboxcli ${D}${bindir}/zbox
 }
